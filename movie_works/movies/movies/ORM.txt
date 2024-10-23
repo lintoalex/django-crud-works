@@ -1,0 +1,142 @@
+class Employee(models.Model):
+
+    name=models.CharField(max_length=100)
+
+    age=models.PositiveBigIntegerField()
+
+    gender=models.CharField(max_length=100)
+
+    department=models.CharField(max_length=200)
+
+    mobile=models.CharField(max_length=12)
+
+    salary=models.PositiveBigIntegerField()
+
+    address=models.TextField()
+
+    qualification=models.CharField(max_length=200,null=True)
+
+    orm query creating a resource 
+
+    modelname.objects.create(field=value,field=value)
+
+     Employee.objects.create(name="vipin",
+
+     Employee.objects.create age="23",
+     
+     Employee.objects.create gender="male",
+
+     Employee.objects.create department="hr",
+
+     Employee.objects.create mobile=259865485,
+
+     Employee.objects.create salary="45263",
+
+     Employee.objects.create address="kakkanad"
+
+     Employee.objects.create qualification="diploma"
+     
+                                                 )
+
+
+
+orm query for fetching all records
+
+   >qs=modelname.objects.all()
+
+   >qs=movie.objects.all()
+
+orm query to fetch speciffic records
+
+  qs=modelname.objects.get(field_value)
+
+orm query to filter records
+
+qs=modelname.objects.filter(field_value)
+
+fetch Employee working as hr
+
+ qs=Employee.objects.filter(department="hr")
+
+ field lookups
+
+ 1.< __lt less than
+
+2.> __gt greater than
+
+3.<= __lte less than or equal
+
+4.>= __gte greater than or equal
+
+1.movie filter action list movie
+
+2.movie rating filter
+
+3.movie year sort 
+
+4.rating of movie in 5
+
+5.movie year greater than 2020
+
+6.movie in rating filter year
+
+7.movie in rating filter and language
+
+1.query for fetching all movie
+qs=Movie.objects.all()
+
+2.query for fetching movie with id=1
+qs=Movie.object.get(id="1")
+
+3.query for fetching malayalam movie
+qs=Movie.object.filter(language="malayalam")
+
+4.malayalam movie with runtime > 140
+qs=Movie.object.filter(language="malayalam).exclude(runtime__gt="140")
+
+qs=Movie.objects.filter(language="malayalam",runtime__gt="140")
+
+5.sorting by year
+
+qs=-Employee.objects.all().order_by("-year")
+
+qs=Employee.objects.all().order_by("year")
+
+6.movie title startswith a
+
+qs=Movie.objects.filter(title__startswith="a")
+
+7.movie with character "an"
+
+qs=movie.objects.filter(name__contains="an")
+
+8.fetch Employee department only
+
+qs=Employee.objects.all().values("department")
+
+9.fetch Movie year only
+qs=Movie.objects.all().values("yaer")
+
+10.distinct element
+
+qs=qs=Employee.objects.all().values("department").distinct()
+
+11.find minimum salary and maximum salary
+
+from django.db.models import Max,minimum
+
+qs=Employee.objects.all().values("salary").aggregate(Min("salary")) 
+
+qs=Employee.objects.all().values("salary").aggregate(Max("salary")) 
+
+12.all Employee salary sum
+
+qs=Employee.objects.all().values("salary").aggregate(Sum("salary")) 
+
+13.movie filter in rating and title print
+
+14.movie find in runtime and title print
+
+15.movie find action movies title print
+
+16.
