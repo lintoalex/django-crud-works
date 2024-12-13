@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+
+
+{%block main_block%}
+
+    <div class="container p-4">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                {%if data.picture%}
+                <img src="{{data.picture.url}}" class="img-fluid rounded-start" alt="...">
+                {%endif%}
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h3 class="card-title">Name: {{data.title}}</h3>
+                  <h6 class="card-text">Language: {{data.language}}</h6>
+                  <h6 class="card-text">Running Time: {{data.runtime}}</h6>
+                  <h6 class="card-text">Movie Rating: {{data.rating}}</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+{%endblock%}

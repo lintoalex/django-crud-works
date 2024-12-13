@@ -14,5 +14,7 @@ class Movie(models.Model):
 
     rating=models.PositiveBigIntegerField()
 
+    picture=models.ImageField(upload_to="movie_image",null=True)
+
     def __str__(self):
-        return self.title
+        return self.title                                           

@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+
+{%block main_block%}
+<div class="container p-3">
+    <table class="table table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Salary</th>
+            <th>Department</th>
+            <th>Gender</th>
+             <th>Image</th>
+             <th>Action</th>
+        </tr>
+        {%for e in data%}
+        <tr>
+        <td>{{e.name}}</td>
+        <td>{{e.age}}</td>
+        <td>{{e.salary}}</td>
+        <td>{{e.department}}</td>
+        <td>{{e.gender_type}}</td>
+        <td>
+            {%if e.picture%}
+            <img src="{{e.picture.url}}" alt="" height="100" width="100">
+        {%endif%}
+        </td>
+        <td>
+            <a href="{%url 'employee-update' e.id%}">Update</a>
+            <a href="{%url 'employee-detail' e.id%}">Detail</a>
+            <a href="{%url 'employee-remove' e.id%}">remove</a>
+        </td>
+        </tr>
+        {%endfor%}
+    </table>
+</div>
+{%endblock%}

@@ -1,0 +1,30 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{%static 'css/bootstrap4.css'%}">
+
+</head>
+<body>
+    <h1 class="text-center">Sign Up Form</h1>
+     <div class="container p-3">
+        <div class="row">
+            <div class="col-4 border mx-auto shadow rounded">
+                <form action="" method="post">
+                    {%csrf_token%}
+            
+                    {{form}}
+                    <button class="my-2 btn btn-dark" style="margin-left: 32%;" type="submit">SignUp</button>
+                </form>
+                <div class="" style="margin-left: 55%;">
+                    already user <a href="{%url 'signin'%}">SignIn</a>
+                </div>
+            </div>
+        </div>
+     </div>
+</body>
+</html>

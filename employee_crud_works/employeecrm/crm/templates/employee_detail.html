@@ -1,0 +1,20 @@
+{%extends 'base.html'%}
+
+{%block main_block%}
+   <div class="container p-3" >
+       <div class="card" style="width: 18rem;">
+     {%if data.picture%}
+          <img src="{{data.picture.url}}" class="card-img-top" alt="...">
+     {%endif%}
+  <div class="card-body">
+    <h5 class="card-title">Name:{{data.name}}</h5>
+    <p class="card-text">Department:{{data.department}}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Age:{{data.age}}</li>
+    <li class="list-group-item">Address:{{data.address}}</li>
+    <li class="list-group-item">Email:{{data.email}}</li>
+  </ul>
+</div>
+   </div>
+{%endblock%}

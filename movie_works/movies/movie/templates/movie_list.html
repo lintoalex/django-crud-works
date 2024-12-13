@@ -1,30 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+{%extends 'base.html'%}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+{%block main_block%}
 
-</head>
-
-<body>
-    <h1>Movies All List</h1>
-
-    <div>
+<h1 class="text-center">Movies All List</h1>
+<div class="container">
+    <div class="row">
         {%for m in data%}
-        <div  class="border p-3">
-            <p>Title:{{m.title}}</p>
-            <p>Genre:{{m.genre}}</p>
-            <p>Year:{{m.year}}</p>
-            <p>Running Time:{{m.runtime}}</p>
-            <p>Language:{{m.language}}</p>
-            <p>Rating:{{m.rating}}</p>
+        <div class="col-3 mb-3">
+            <div class="card" style="width: 100%;">
+               {%if m.picture%}
+               <img src="{{m.picture.url}}" alt="..." >
+               {%endif%}
+                <div class="card-body ">
+                    <h5 class="card-title">{{m.title}}</h5>
+                    <p class="card-text">{{m.genre}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{m.year}}</li>
+                    <li class="list-group-item">Language:{{m.language}}</li>
+                    <li class="list-group-item">Rating:{{m.rating}}</li>
+                </ul>
+                <div class="card-body">
+                    <button class="bg-primary"><a  href="{%url 'movie-details' m.id%}">View</a></button>
+                    <button class="bg-primary"><a  href="{%url 'movie-delete' m.id%}">Delete</a></button>
+                    <button class="bg-primary"><a class="mx-2" href="{%url 'movie-change' m.id%}">Update</a></button>
+                </div>
+            </div>
         </div>
         {%endfor%}
     </div>
-</body>
 
-</html>
+    {%endblock%}

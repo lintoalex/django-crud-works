@@ -35,6 +35,8 @@ class Vehicle(models.Model):
 
     owner_type=models.CharField(max_length=200,choices=owner_options,default="single")
 
+    picture=models.ImageField(upload_to="vehicle_image",null=True)
+
     def __str__(self):
         return self.name
 
